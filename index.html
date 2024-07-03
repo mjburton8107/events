@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Events and Webinars</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>AWS Events and Webinars</h1>
+        <p>AWS hosts events, both online and in-person, bringing the cloud computing community together to connect, collaborate, and learn from AWS experts.</p>
+    </header>
+    <main id="events-list"></main>
+
+    <script>
+    // Embed the JSON data directly in the HTML file
+    const eventsData = {
+      "events": [
+        {
+          "date": "July 9",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (San Francisco, CA)"
+        },
+        {
+          "date": "July 10",
+          "name": "AWS Summit New York",
+          "link": "https://aws.amazon.com/events/summits/new-york/?trk=238c5b51-eabf-475a-8b01-a1cd8504dad8&sc_channel=el",
+          "location": "In-person (New York, NY)"
+        },
+        {
+          "date": "July 10",
+          "name": "Chief Product Officer Forum at AWS Summit New York",
+          "link": "https://aws-cpo-forum-at-ny-summit.splashthat.com/?trk=39eaaec0-18e2-4900-9437-38685b34800e&sc_channel=el",
+          "location": "In-person (New York, NY)"
+        },
+        {
+          "date": "July 10",
+          "name": "ISV Leaders Builders Breakfast at AWS Summit New York",
+          "link": "https://aws-cpo-forum-at-ny-summit.splashthat.com/?trk=39eaaec0-18e2-4900-9437-38685b34800e&sc_channel=el",
+          "location": "In-person (New York, NY)"
+        },
+        {
+          "date": "July 11",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Los Angeles, CA)"
+        },
+        {
+          "date": "July 16",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Minneapolis, MN)"
+        },
+        {
+          "date": "July 16",
+          "name": "Generative AI Executive Connections: From Concept to Catalyst",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-exec-connections-dallas-2024-reg-event.html?trk=91ced2fc-a23c-4ef7-bd64-606f3221022f&sc_channel=em",
+          "location": "In-person (Dallas, TX)"
+        },
+        {
+          "date": "July 16",
+          "name": "Amazon GuardDuty re:Inforce Release Post-cap",
+          "link": "https://amazon.webex.com/webappng/sites/amazon/meeting/register/e8f15b345f9347beae50d32534c2d79a?ticket=4832534b0000000746dc6faa102f4d937a327dfd9275bb40efae84a2632bc1d4c4a6206468e4d1e0&timestamp=1719856918121&RGID=r801485632b835c29cf2d4b10d15d302f",
+          "location": "Virtual"
+        },
+        {
+          "date": "July 16",
+          "name": "How you and your customers use Search is changing. The case for migrating to OpenSearch.",
+          "link": "https://aws-experience.com/amer/smb/e/eefde/how-you-and-your-customers-use-search-is-changing-the-case-for-migrating-to-opensearch",
+          "location": "Virtual"
+        },
+        {
+          "date": "July 18",
+          "name": "Generative AI Executive Connections: From Concept to Catalyst",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-exec-connections-detroit-2024-reg-event.html?trk=b349afd9-18a9-4ccb-98cd-fa053c8eb7a1&sc_channel=em",
+          "location": "In-person (Detroit, MI)"
+        },
+        {
+          "date": "July 23",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Philadelphia, PA)"
+        },
+        {
+          "date": "July 23",
+          "name": "Powered by Generative AI and BI Global Roadshow",
+          "link": "https://aws.amazon.com/blogs/business-intelligence/the-powered-by-generative-ai-and-bi-global-roadshow-is-coming-to-a-city-near-you/",
+          "location": "In-person (Brisbane, Australia)"
+        },
+        {
+          "date": "July 25",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Chicago, IL)"
+        },
+        {
+          "date": "July 25",
+          "name": "Powered by Generative AI and BI Global Roadshow",
+          "link": "https://aws.amazon.com/blogs/business-intelligence/the-powered-by-generative-ai-and-bi-global-roadshow-is-coming-to-a-city-near-you/",
+          "location": "In-person (Sydney, Australia)"
+        },
+        {
+          "date": "July 25",
+          "name": "Migrating From Elasticsearch to Amazon OpenSearch - A How-to Guide",
+          "link": "https://aws-experience.com/amer/smb/e/f2b1b/migrating-from-elasticsearch-to-amazon-opensearch---a-how-to-guide",
+          "location": "Virtual"
+        },
+        {
+          "date": "July 30",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Dallas, TX)"
+        },
+        {
+          "date": "July 30",
+          "name": "Powered by Generative AI and BI Global Roadshow",
+          "link": "https://aws.amazon.com/blogs/business-intelligence/the-powered-by-generative-ai-and-bi-global-roadshow-is-coming-to-a-city-near-you/",
+          "location": "In-person (Auckland, New Zealand)"
+        },
+        {
+          "date": "August 1",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Atlanta, GA)"
+        },
+        {
+          "date": "August 1",
+          "name": "Generative AI & Security Executive Forum",
+          "link": "https://generative-ai-security-exec-forum.splashthat.com/",
+          "location": "In-person (East Palo Alto, CA)"
+        },
+        {
+          "date": "August 1",
+          "name": "Powered by Generative AI and BI Global Roadshow",
+          "link": "https://aws.amazon.com/blogs/business-intelligence/the-powered-by-generative-ai-and-bi-global-roadshow-is-coming-to-a-city-near-you/",
+          "location": "In-person (Melbourne, Australia)"
+        },
+        {
+          "date": "August 6",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Detroit, MI)"
+        },
+        {
+          "date": "August 7",
+          "name": "AWS Summit Mexico City",
+          "link": "",
+          "location": "In-person (Mexico City, Mexico)"
+        },
+        {
+          "date": "August 15",
+          "name": "AWS Summit Sao Paulo",
+          "link": "",
+          "location": "In-person (Sau Paulo, Brazil)"
+        },
+        {
+          "date": "August 15",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Charlotte, NC)"
+        },
+        {
+          "date": "August 20",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Arlington, VA)"
+        },
+        {
+          "date": "August 22",
+          "name": "Generative AI Day: Activate Your Architecture",
+          "link": "https://pages.awscloud.com/NAMER-field-T3-gen-ai-day-activate-your-architecture-2024-reg-event.html?trk=e9d247ff-8cdd-42a1-85a7-b414564dbebe&sc_channel=em",
+          "location": "In-person (Boston, MA)"
+        },
+        {
+          "date": "September 11",
+          "name": "AWS Summit Toronto",
+          "link": "",
+          "location": "In-person (Toronto, Ontario, Canada)"
+        },
+        {
+          "date": "December 2",
+          "name": "AWS re:Invent",
+          "link": "https://reinvent.awsevents.com/",
+          "location": "In-person (Las Vegas, NV)"
+        },
+        {
+          "date": "On Demand",
+          "name": "Gen AI for Security: Adoption strategies with Amazon Bedrock",
+          "link": "https://pages.awscloud.com/awsmp-gim-9dij-webinar-sec-gen-ai-ml-security-aiml-webinar.html",
+          "location": "Virtual"
+        }
+      ]
+    };
+
+    // Function to create an event card
+    function createEventCard(event) {
+        const card = document.createElement('div');
+        card.className = 'event-card';
+        card.innerHTML = `
+            <h2><a href="${event.link}" target="_blank">${event.name}</a></h2>
+            <p>Date: ${event.date}</p>
+            <p>Location: ${event.location}</p>
+        `;
+        return card;
+    }
+
+    // Function to display events
+    function displayEvents() {
+        const eventsList = document.getElementById('events-list');
+        eventsData.events.forEach(event => {
+            eventsList.appendChild(createEventCard(event));
+        });
+    }
+
+    // Call the function to display events when the page loads
+    displayEvents();
+    </script>
+</body>
+</html>

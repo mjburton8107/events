@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4e0e8f, #0077be);
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+#events-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+a {
+    color: #ff9900;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
